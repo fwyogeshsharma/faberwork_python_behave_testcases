@@ -69,36 +69,8 @@ def step_submit_empty_consultation_form(context):
 
 
 # ============================================
-# Contact Form Steps
+# Contact Form Steps (moved to contact_page_steps.py to avoid duplication)
 # ============================================
-
-@when('I fill in the contact form with')
-def step_fill_contact_form_with_table(context):
-    """Fill contact form using data from table"""
-    form_data = {}
-
-    for row in context.table:
-        field = row['Field']
-        value = row['Value']
-        form_data[field.lower()] = value
-
-    # Fill the form
-    context.contact_page.fill_contact_form(
-        name=form_data.get('name', ''),
-        email=form_data.get('email', ''),
-        phone=form_data.get('phone', ''),
-        company=form_data.get('company', ''),
-        subject=form_data.get('subject', ''),
-        message=form_data.get('message', '')
-    )
-    logger.info("Filled contact form with provided data")
-
-
-@when('I submit the contact form')
-def step_submit_contact_form(context):
-    """Submit the contact form"""
-    context.contact_page.submit_contact_form()
-    logger.info("Submitted contact form")
 
 
 @when('I enter only email "{email}"')
@@ -141,17 +113,7 @@ def step_enter_specific_newsletter_email(context, email):
 # Form Validation Steps
 # ============================================
 
-@then('I should see a success message')
-def step_verify_success_message(context):
-    """Verify success message is displayed"""
-    # Try both homepage and contact page success messages
-    success_displayed = (
-        context.home_page.is_success_message_displayed() or
-        context.contact_page.is_success_message_displayed()
-    )
-
-    assert success_displayed, "Success message not displayed"
-    logger.info("✓ Success message displayed")
+# Success message step moved to contact_page_steps.py
 
 
 @then('the success message should contain "{text}" or "{alt_text}"')

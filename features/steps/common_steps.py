@@ -67,20 +67,31 @@ def step_go_to_homepage(context):
 @when('I click on the "{menu_item}" menu')
 def step_click_menu_item(context, menu_item):
     """Click on a navigation menu item"""
+    # Normalize menu item to handle case variations
+    menu_item_normalized = menu_item.lower().strip()
+
+    # Wait for navigation to be fully loaded
+    context.home_page.wait_for_page_load()
+    import time
+    time.sleep(0.5)  # Small delay to ensure nav elements are interactive
+
+    # Case-insensitive menu mapping
     menu_mapping = {
-        'Services': context.home_page.click_services_menu,
-        'Industries': context.home_page.click_industries_menu,
-        'Success Stories': context.home_page.click_success_stories_menu,
-        'Latest Thinking': context.home_page.click_latest_thinking_menu,
-        'About Us': context.home_page.click_about_menu,
-        'Contact Us': context.home_page.click_contact_menu,
+        'services': context.home_page.click_services_menu,
+        'industries': context.home_page.click_industries_menu,
+        'success stories': context.home_page.click_success_stories_menu,
+        'latest thinking': context.home_page.click_latest_thinking_menu,
+        'about us': context.home_page.click_about_menu,
+        'about': context.home_page.click_about_menu,  # Handle "About" variation
+        'contact us': context.home_page.click_contact_menu,
+        'contact': context.home_page.click_contact_menu,  # Handle "Contact" variation
     }
 
-    if menu_item in menu_mapping:
-        menu_mapping[menu_item]()
+    if menu_item_normalized in menu_mapping:
+        menu_mapping[menu_item_normalized]()
         logger.info(f"Clicked on {menu_item} menu")
     else:
-        raise ValueError(f"Unknown menu item: {menu_item}")
+        raise ValueError(f"Unknown menu item: {menu_item}. Available options: {', '.join(menu_mapping.keys())}")
 
 
 @when('I click on the logo')

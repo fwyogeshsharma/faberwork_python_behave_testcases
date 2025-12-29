@@ -3,6 +3,7 @@ WebDriver Factory for Faberwork Test Automation
 Handles browser initialization with proper configurations
 """
 
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
@@ -84,6 +85,30 @@ class DriverFactory:
         chrome_options.add_argument('--allow-running-insecure-content')
         chrome_options.add_argument('--disable-web-security')
 
+        # Performance optimizations for parallel execution
+        chrome_options.add_argument('--disable-background-networking')
+        chrome_options.add_argument('--disable-background-timer-throttling')
+        chrome_options.add_argument('--disable-backgrounding-occluded-windows')
+        chrome_options.add_argument('--disable-breakpad')
+        chrome_options.add_argument('--disable-component-extensions-with-background-pages')
+        chrome_options.add_argument('--disable-features=TranslateUI,BlinkGenPropertyTrees')
+        chrome_options.add_argument('--disable-ipc-flooding-protection')
+        chrome_options.add_argument('--disable-renderer-backgrounding')
+        chrome_options.add_argument('--enable-features=NetworkService,NetworkServiceInProcess')
+        chrome_options.add_argument('--force-color-profile=srgb')
+        chrome_options.add_argument('--metrics-recording-only')
+        chrome_options.add_argument('--mute-audio')
+
+        # Memory and resource optimization
+        chrome_options.add_argument('--disable-default-apps')
+        chrome_options.add_argument('--disable-sync')
+        chrome_options.add_argument('--no-first-run')
+        chrome_options.add_argument('--no-default-browser-check')
+        chrome_options.add_argument('--disable-hang-monitor')
+        chrome_options.add_argument('--disable-prompt-on-repost')
+        chrome_options.add_argument('--disable-domain-reliability')
+        chrome_options.add_argument('--disable-component-update')
+
         # User agent (avoid bot detection)
         chrome_options.add_argument(
             'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
@@ -140,9 +165,11 @@ class DriverFactory:
                     # Fallback: try direct instantiation (Selenium 4.6+ can auto-download)
                     driver = webdriver.Chrome(options=chrome_options)
 
-            # Set timeouts
+            # Set timeouts (increased for parallel execution stability)
             driver.implicitly_wait(Config.IMPLICIT_WAIT)
-            driver.set_page_load_timeout(Config.PAGE_LOAD_TIMEOUT)
+            # Use higher page load timeout to handle parallel execution load
+            page_load_timeout = int(os.getenv('PAGE_LOAD_TIMEOUT', Config.PAGE_LOAD_TIMEOUT))
+            driver.set_page_load_timeout(max(page_load_timeout, 90))  # Minimum 90s for parallel runs
             driver.set_script_timeout(Config.SCRIPT_TIMEOUT)
 
             logger.info("Chrome WebDriver created successfully")
@@ -186,9 +213,11 @@ class DriverFactory:
                 service = FirefoxService(GeckoDriverManager().install())
                 driver = webdriver.Firefox(service=service, options=firefox_options)
 
-            # Set timeouts
+            # Set timeouts (increased for parallel execution stability)
             driver.implicitly_wait(Config.IMPLICIT_WAIT)
-            driver.set_page_load_timeout(Config.PAGE_LOAD_TIMEOUT)
+            # Use higher page load timeout to handle parallel execution load
+            page_load_timeout = int(os.getenv('PAGE_LOAD_TIMEOUT', Config.PAGE_LOAD_TIMEOUT))
+            driver.set_page_load_timeout(max(page_load_timeout, 90))  # Minimum 90s for parallel runs
             driver.set_script_timeout(Config.SCRIPT_TIMEOUT)
 
             logger.info("Firefox WebDriver created successfully")
@@ -228,9 +257,11 @@ class DriverFactory:
                 service = EdgeService(EdgeChromiumDriverManager().install())
                 driver = webdriver.Edge(service=service, options=edge_options)
 
-            # Set timeouts
+            # Set timeouts (increased for parallel execution stability)
             driver.implicitly_wait(Config.IMPLICIT_WAIT)
-            driver.set_page_load_timeout(Config.PAGE_LOAD_TIMEOUT)
+            # Use higher page load timeout to handle parallel execution load
+            page_load_timeout = int(os.getenv('PAGE_LOAD_TIMEOUT', Config.PAGE_LOAD_TIMEOUT))
+            driver.set_page_load_timeout(max(page_load_timeout, 90))  # Minimum 90s for parallel runs
             driver.set_script_timeout(Config.SCRIPT_TIMEOUT)
 
             logger.info("Edge WebDriver created successfully")

@@ -23,7 +23,9 @@
       "Bash(python -B -m behave:*)",
       "Bash(timeout 120 python:*)",
       "Bash(python -B:*)",
-      "Bash(pkill:*)"
+      "Bash(pkill:*)",
+      "Bash(timeout 90 python:*)",
+      "Bash(timeout 60 python:*)"
     ]
   }
 }
