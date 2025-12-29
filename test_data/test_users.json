@@ -1,0 +1,40 @@
+{
+  "valid_users": [
+    {
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "company": "Tech Innovations Inc",
+      "phone": "+1-555-123-4567"
+    },
+    {
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "company": "Global Solutions Ltd",
+      "phone": "+1-555-987-6543"
+    },
+    {
+      "name": "Robert Johnson",
+      "email": "robert.j@corporation.com",
+      "company": "Innovation Corp",
+      "phone": "+1-555-456-7890"
+    }
+  ],
+  "invalid_emails": [
+    "invalid",
+    "@example.com",
+    "test@",
+    "test..email@example.com",
+    "test email@example.com",
+    "test@example",
+    "test@.com",
+    "@",
+    "test@example..com",
+    "test@@example.com"
+  ],
+  "invalid_phones": [
+    "invalid",
+    "123",
+    "abc-def-ghij",
+    "++1234567890"
+  ]
+}

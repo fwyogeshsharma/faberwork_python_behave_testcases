@@ -1,0 +1,91 @@
+version: '3.8'
+
+services:
+  # Main test execution service
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: faberwork_test_automation
+    volumes:
+      # Mount reports and screenshots to host for persistence
+      - ./reports:/app/reports
+      - ./screenshots:/app/screenshots
+      - ./logs:/app/logs
+      # Mount test code for live updates during development
+      - ./features:/app/features
+      - ./pages:/app/pages
+      - ./utils:/app/utils
+      - ./test_data:/app/test_data
+    environment:
+      # Load from .env file or use defaults
+      - BASE_URL=${BASE_URL:-https://www.faberwork.com}
+      - BROWSER=${BROWSER:-chrome}
+      - HEADLESS=${HEADLESS:-True}
+      - IMPLICIT_WAIT=${IMPLICIT_WAIT:-10}
+      - EXPLICIT_WAIT=${EXPLICIT_WAIT:-20}
+      - PAGE_LOAD_TIMEOUT=${PAGE_LOAD_TIMEOUT:-30}
+      - ENVIRONMENT=${ENVIRONMENT:-production}
+      - TAKE_SCREENSHOT_ON_FAILURE=${TAKE_SCREENSHOT_ON_FAILURE:-True}
+      - RETRY_FAILED_TESTS=${RETRY_FAILED_TESTS:-2}
+      - SCREENSHOT_DIR=${SCREENSHOT_DIR:-screenshots}
+      - ALLURE_RESULTS_DIR=${ALLURE_RESULTS_DIR:-reports}
+    networks:
+      - test-network
+    shm_size: '2gb'  # Increase shared memory for Chrome stability
+    command: behave --no-capture --format pretty
+    restart: "no"
+
+  # Optional: Allure reporting service
+  allure:
+    image: frankescobar/allure-docker-service:latest
+    container_name: faberwork_allure_reports
+    ports:
+      - "5050:5050"
+      - "5252:5252"
+    volumes:
+      - ./reports:/app/allure-results
+      - ./allure-reports:/app/allure-report
+    environment:
+      CHECK_RESULTS_EVERY_SECONDS: 3
+      KEEP_HISTORY: 1
+    networks:
+      - test-network
+    restart: unless-stopped
+
+  # Optional: Selenium Grid Hub for parallel execution
+  selenium-hub:
+    image: selenium/hub:latest
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+      - "4442:4442"
+      - "4443:4443"
+    networks:
+      - test-network
+    profiles:
+      - grid  # Only start when using grid profile
+
+  # Optional: Chrome Node for Selenium Grid
+  chrome-node:
+    image: selenium/node-chrome:latest
+    container_name: chrome-node
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=5
+    shm_size: '2gb'
+    networks:
+      - test-network
+    profiles:
+      - grid  # Only start when using grid profile
+
+networks:
+  test-network:
+    driver: bridge
+
+volumes:
+  allure-reports:

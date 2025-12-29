@@ -1,0 +1,9 @@
+# Minimal requirements for running tests
+behave==1.2.6
+selenium==4.15.2
+webdriver-manager==4.0.1
+faker==20.1.0
+python-dotenv==1.0.0
+requests==2.31.0
+loguru==0.7.2
+colorama==0.4.6

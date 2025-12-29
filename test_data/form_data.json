@@ -1,0 +1,50 @@
+{
+  "consultation_requests": [
+    {
+      "name": "Alice Williams",
+      "email": "alice.w@startup.io",
+      "company": "Startup Innovations",
+      "phone": "+1-555-111-2222",
+      "message": "Interested in your software development services"
+    },
+    {
+      "name": "Bob Martinez",
+      "email": "bob.martinez@enterprise.com",
+      "company": "Enterprise Solutions",
+      "phone": "+1-555-333-4444",
+      "message": "Need help with mobile app development"
+    }
+  ],
+  "contact_inquiries": [
+    {
+      "name": "Charlie Brown",
+      "email": "charlie@business.com",
+      "phone": "+1-555-555-6666",
+      "company": "Business Group LLC",
+      "subject": "Project Consultation",
+      "message": "I would like to discuss a potential project collaboration"
+    },
+    {
+      "name": "Diana Prince",
+      "email": "diana.p@organization.org",
+      "phone": "+1-555-777-8888",
+      "company": "Tech Organization",
+      "subject": "Service Inquiry",
+      "message": "Requesting information about your AI solutions and pricing"
+    }
+  ],
+  "newsletter_emails": [
+    "subscriber1@example.com",
+    "subscriber2@company.com",
+    "newsletter.fan@domain.org"
+  ],
+  "search_keywords": [
+    "software development",
+    "mobile application",
+    "artificial intelligence",
+    "database solutions",
+    "test automation",
+    "cloud services",
+    "SnowPro certified"
+  ]
+}

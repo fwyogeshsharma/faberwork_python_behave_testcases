@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.faberwork.com)",
+      "Bash(py --version:*)",
+      "Bash(py -m venv:*)",
+      "Bash(source venv/Scripts/activate)",
+      "Bash(py -m pip install:*)",
+      "Bash(pip install:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(behave:*)",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --version)",
+      "Bash(\"/c/Program Files \\(x86\\)/Google/Chrome/Application/chrome.exe\" --version)",
+      "Bash(timeout 180 behave:*)"
+    ]
+  }
+}

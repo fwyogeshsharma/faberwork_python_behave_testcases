@@ -1,0 +1,49 @@
+# Core Testing Framework
+behave==1.2.6
+selenium==4.15.2
+webdriver-manager==4.0.1
+
+# Reporting
+allure-behave==2.13.2
+pytest==7.4.3
+pytest-html==4.1.1
+
+# Test Data Generation
+faker==20.1.0
+
+# Configuration Management
+python-dotenv==1.0.0
+
+# API Testing (for chatbot & form submissions)
+requests==2.31.0
+
+# Image Processing (for visual comparisons)
+pillow==10.1.0
+
+# Excel/Data handling
+openpyxl==3.1.2
+pandas==2.1.4
+
+# Utilities
+python-dateutil==2.8.2
+colorama==0.4.6
+
+# Logging
+loguru==0.7.2
+
+# JSON/XML parsing
+jsonschema==4.20.0
+xmltodict==0.13.0
+
+# Browser automation enhancements
+selenium-wire==5.1.0
+
+# Retry logic
+tenacity==8.2.3
+
+# HTML parsing
+beautifulsoup4==4.12.2
+lxml==4.9.4
+
+# Screenshots and image comparison
+opencv-python-headless==4.8.1.78
