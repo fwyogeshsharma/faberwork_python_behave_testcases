@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-12-29T16:42:45.507754",
+  "workers": 7,
+  "statistics": {
+    "total_features": 1,
+    "passed_features": 0,
+    "failed_features": 1,
+    "total_duration": 316.18419,
+    "max_duration": 316.18419,
+    "min_duration": 316.18419,
+    "avg_duration": 316.18419,
+    "parallel_duration": 316.333014,
+    "speedup": 0.9995295337716474
+  },
+  "results": [
+    {
+      "feature": "smoke",
+      "worker_id": 0,
+      "success": false,
+      "returncode": 1,
+      "duration": 316.18419,
+      "json_output": "E:\\Projects\\faberwork_python_behave_testcases\\reports\\parallel-results\\worker_0\\smoke_results.json",
+      "allure_output": null,
+      "stdout": "0m - \u001b[1mSuccess Rate: 50.00%\u001b[0m\n\u001b[32m2025-12-29 16:42:45\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1m================================================================================\u001b[0m\n\u001b[32m2025-12-29 16:42:45\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1mTest Execution Completed\u001b[0m\n\u001b[32m2025-12-29 16:42:45\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1m================================================================================\u001b[0m\n",
+      "stderr": " \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n\u001b[32m2025-12-29 16:37:30.267\u001b[0m | \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n\u001b[32m2025-12-29 16:37:30.294\u001b[0m | \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n"
+    }
+  ]
+}

@@ -12,7 +12,18 @@
       "Bash(behave:*)",
       "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --version)",
       "Bash(\"/c/Program Files \\(x86\\)/Google/Chrome/Application/chrome.exe\" --version)",
-      "Bash(timeout 180 behave:*)"
+      "Bash(timeout 180 behave:*)",
+      "Bash(allure:*)",
+      "Bash(py:*)",
+      "Bash(find:*)",
+      "Bash(tee:*)",
+      "Bash(xargs:*)",
+      "Bash(python -c:*)",
+      "Bash(timeout 60 behave:*)",
+      "Bash(python -B -m behave:*)",
+      "Bash(timeout 120 python:*)",
+      "Bash(python -B:*)",
+      "Bash(pkill:*)"
     ]
   }
 }

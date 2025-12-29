@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Execution Report - Faberwork</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .stat-card h3 {
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .stat-card .value {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .stat-card .subtitle {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .stat-card.success .value { color: #28a745; }
+        .stat-card.danger .value { color: #dc3545; }
+        .stat-card.warning .value { color: #ffc107; }
+        .stat-card.info .value { color: #17a2b8; }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .feature-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .feature-header {
+            background: #f8f9fa;
+            padding: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .feature-header:hover {
+            background: #e9ecef;
+        }
+
+        .feature-header h3 {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .feature-header .description {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .feature-tags {
+            margin-top: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            margin-right: 5px;
+        }
+
+        .scenario-list {
+            padding: 0;
+        }
+
+        .scenario {
+            border-top: 1px solid #eee;
+            padding: 20px;
+        }
+
+        .scenario:hover {
+            background: #f8f9fa;
+        }
+
+        .scenario-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .scenario-name {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .badge {
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge-danger {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .badge-warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .badge-secondary {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+
+        .steps-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .steps-table th {
+            background: #f8f9fa;
+            padding: 10px;
+            text-align: left;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            color: #666;
+        }
+
+        .steps-table td {
+            padding: 10px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.9em;
+        }
+
+        .steps-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .step-passed {
+            color: #28a745;
+        }
+
+        .step-failed {
+            color: #dc3545;
+            font-weight: 600;
+        }
+
+        .step-skipped {
+            color: #6c757d;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.85em;
+            color: #721c24;
+            white-space: pre-wrap;
+        }
+
+        .screenshot {
+            max-width: 100%;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .chart-container {
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e9ecef;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-segment {
+            height: 100%;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .progress-success { background: #28a745; }
+        .progress-danger { background: #dc3545; }
+        .progress-warning { background: #ffc107; }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧪 Test Execution Report</h1>
+            <p>Faberwork Website Automation Testing</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Generated on 2025-12-29 16:43:08</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card success">
+                <h3>Success Rate</h3>
+                <div class="value">50.0%</div>
+                <div class="subtitle">Overall Performance</div>
+            </div>
+
+            <div class="stat-card info">
+                <h3>Total Scenarios</h3>
+                <div class="value">4</div>
+                <div class="subtitle">1 Features</div>
+            </div>
+
+            <div class="stat-card success">
+                <h3>Passed</h3>
+                <div class="value">2</div>
+                <div class="subtitle">18 Steps</div>
+            </div>
+
+            <div class="stat-card danger">
+                <h3>Failed</h3>
+                <div class="value">2</div>
+                <div class="subtitle">2 Steps</div>
+            </div>
+
+            <div class="stat-card warning">
+                <h3>Skipped</h3>
+                <div class="value">0</div>
+                <div class="subtitle">0 Steps</div>
+            </div>
+
+            <div class="stat-card info">
+                <h3>Duration</h3>
+                <div class="value" style="font-size: 1.5em;">0.00s</div>
+                <div class="subtitle">Execution Time</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>📊 Test Results Overview</h2>
+                <div class="chart-container">
+                    <div class="progress-bar">
+<div class="progress-segment progress-success" style="width: 50.0%">2 Passed</div><div class="progress-segment progress-danger" style="width: 50.0%">2 Failed</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>❌ Failed Features</h2>
+<div class="feature-card"><div class="feature-header"><h3>Smoke Tests for Faberwork Website</h3><div class="description">['As a QA engineer', 'I want to run smoke tests', 'So that I can verify critical functionality is working']</div><div class="feature-tags"><span class="tag">smoke</span><span class="tag">critical</span></div></div><div class="scenario-list"><div class="scenario"><div class="scenario-header"><span class="scenario-name">Consultation form is accessible</span><span class="badge badge-danger">✗ FAILED</span></div><div class="feature-tags"><span class="tag">smoke</span><span class="tag">form</span></div><table class="steps-table"><thead><tr><th>Keyword</th><th>Step</th><th>Duration</th><th>Status</th></tr></thead><tbody><tr><td><strong>Given</strong></td><td class="step-passed">the Faberwork website is accessible</td><td>48.48s</td><td><span class="badge badge-success">✓ PASSED</span></td></tr><tr><td><strong>Given</strong></td><td class="step-passed">I am on the homepage</td><td>2.94s</td><td><span class="badge badge-success">✓ PASSED</span></td></tr><tr><td><strong>When</strong></td><td class="step-passed">I scroll to the consultation form</td><td>0.52s</td><td><span class="badge badge-success">✓ PASSED</span></td></tr><tr><td><strong>Then</strong></td><td class="step-passed">the consultation form is visible</td><td>0.02s</td><td><span class="badge badge-success">✓ PASSED</span></td></tr><tr><td><strong>And</strong></td><td class="step-failed">all required form fields are present</td><td>5.00s</td><td><span class="badge badge-danger">✗ FAILED</span></td></tr><tr><td colspan="4"><div class="error-message">Assertion Failed: Required field not present: ('css selector', "input[name='consult-name']")</div></td></tr></tbody></table></div><div class="scenario"><div class="scenario-header"><span class="scenario-name">Contact page is accessible</span><span class="badge badge-danger">✗ FAILED</span></div><div class="feature-tags"><span class="tag">smoke</span><span class="tag">contact</span></div><table class="steps-table"><thead><tr><th>Keyword</th><th>Step</th><th>Duration</th><th>Status</th></tr></thead><tbody><tr><td><strong>Given</strong></td><td class="step-passed">the Faberwork website is accessible</td><td>48.52s</td><td><span class="badge badge-success">✓ PASSED</span></td></tr><tr><td><strong>Given</strong></td><td class="step-passed">I am on the homepage</td><td>47.90s</td><td><span class="badge badge-success">✓ PASSED</span></td></tr><tr><td><strong>When</strong></td><td class="step-passed">I click on the "Contact Us" menu</td><td>2.84s</td><td><span class="badge badge-success">✓ PASSED</span></td></tr><tr><td><strong>Then</strong></td><td class="step-passed">I should be on the Contact page</td><td>0.01s</td><td><span class="badge badge-success">✓ PASSED</span></td></tr><tr><td><strong>And</strong></td><td class="step-failed">the contact form is visible</td><td>15.19s</td><td><span class="badge badge-danger">✗ FAILED</span></td></tr><tr><td colspan="4"><div class="error-message">Assertion Failed: Contact form fields not present</div></td></tr></tbody></table></div></div></div></div>
+        </div>
+
+        <div class="footer">
+            <p>Generated by Faberwork Test Automation Framework</p>
+            <p>Total execution time: 0.00s | 4 scenarios | 20 steps</p>
+        </div>
+    </div>
+</body>
+</html>
