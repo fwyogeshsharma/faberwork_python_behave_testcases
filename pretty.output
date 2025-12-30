@@ -1,15 +1,68 @@
-@smoke @critical
-Feature: Smoke Tests for Faberwork Website # features/smoke.feature:2
-  As a QA engineer
-  I want to run smoke tests
-  So that I can verify critical functionality is working
-  Background:   # features/smoke.feature:7
+@regression @about
+Feature: About Us Page Functionality # features/about_page.feature:2
+  As a potential client or visitor
+  I want to learn about Faberwork's company and team
+  So that I can understand their background and expertise
+  Background:   # features/about_page.feature:7
 
-  @smoke @homepage
-  Scenario: Homepage loads successfully        # features/smoke.feature:11
-    Given the Faberwork website is accessible  # features/steps/common_steps.py:20
-    When I navigate to the homepage            # features/steps/common_steps.py:61
-    Then the homepage should load successfully # features/steps/common_steps.py:148
-    And the logo should be visible             # features/steps/common_steps.py:155
-    And all navigation links should be present # features/steps/common_steps.py:162
+  @about @page_load
+  Scenario: About Us page loads successfully     # features/about_page.feature:12
+    Given I am on the Faberwork homepage         # features/steps/common_steps.py:28
+    When I click on the "About us" menu          # features/steps/common_steps.py:67
+    Then the About page should load successfully # features/steps/about_page_steps.py:10
+    And the page title should be "Who We Are"    # features/steps/about_page_steps.py:19
+    And I should see "Established 2003" text     # features/steps/about_page_steps.py:28
+
+  @about @company_info
+  Scenario: Company overview information is displayed      # features/about_page.feature:18
+    Given I am on the Faberwork homepage                   # features/steps/common_steps.py:28
+    When I click on the "About us" menu                    # features/steps/common_steps.py:67
+    Then I should see company overview information         # features/steps/about_page_steps.py:37
+    And I should see "Snowflake Partner Network" mentioned # features/steps/about_page_steps.py:49
+    And I should see "enterprise applications" mentioned   # features/steps/about_page_steps.py:49
+
+  @about @leadership_team
+  Scenario: All leadership team members are displayed  # features/about_page.feature:24
+    Given I am on the Faberwork homepage               # features/steps/common_steps.py:28
+    When I click on the "About us" menu                # features/steps/common_steps.py:67
+    Then I should see the following team members       # features/steps/about_page_steps.py:58
+      | Name          | Title                     |
+      | Alok Pancholi | Founder & CEO             |
+      | Yogesh Sharma | SVP, Delivery             |
+      | Jaideep Singh | Senior Director, Delivery |
+      | Ram Singh     | Senior Technical Lead     |
+      | Saurabh Jain  | Senior Technical Lead     |
+      | Vikas Sharma  | Senior Technical Lead     |
+
+  @about @team_photos
+  Scenario: Team member photos are displayed            # features/about_page.feature:35
+    Given I am on the Faberwork homepage                # features/steps/common_steps.py:28
+    When I click on the "About us" menu                 # features/steps/common_steps.py:67
+    Then I should see profile photos for team members   # features/steps/about_page_steps.py:77
+    And the photo for "Alok Pancholi" should be visible # features/steps/about_page_steps.py:88
+    And the photo for "Yogesh Sharma" should be visible # features/steps/about_page_steps.py:88
+
+  @about @read_more
+  Scenario: Read more functionality works for team bios  # features/about_page.feature:41
+    Given I am on the Faberwork homepage                 # features/steps/common_steps.py:28
+    When I click on the "About us" menu                  # features/steps/common_steps.py:67
+    When I click on a "Read more" button for team bio    # features/steps/about_page_steps.py:97
+    Then the full bio content should be expanded         # features/steps/about_page_steps.py:115
+    And the button should change to "Read less"          # features/steps/about_page_steps.py:122
+
+  @about @cta
+  Scenario: Call-to-action section is present       # features/about_page.feature:47
+    Given I am on the Faberwork homepage            # features/steps/common_steps.py:28
+    When I click on the "About us" menu             # features/steps/common_steps.py:67
+    When I scroll to the bottom of the page         # features/steps/about_page_steps.py:131
+    Then I should see "Let's Work Together" section # features/steps/about_page_steps.py:140
+    And the "START NOW" button should be visible    # features/steps/about_page_steps.py:156
+
+  @about @navigation
+  Scenario: Navigation elements are present on About page  # features/about_page.feature:53
+    Given I am on the Faberwork homepage                   # features/steps/common_steps.py:28
+    When I click on the "About us" menu                    # features/steps/common_steps.py:67
+    Then all navigation links should be present            # features/steps/common_steps.py:162
+    And the Faberwork logo should be visible               # features/steps/about_page_steps.py:181
+    And the footer should be visible                       # features/steps/about_page_steps.py:189
 

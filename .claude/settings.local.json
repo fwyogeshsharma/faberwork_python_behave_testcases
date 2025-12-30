@@ -25,7 +25,10 @@
       "Bash(python -B:*)",
       "Bash(pkill:*)",
       "Bash(timeout 90 python:*)",
-      "Bash(timeout 60 python:*)"
+      "Bash(timeout 60 python:*)",
+      "Bash(python generate_html_report.py:*)",
+      "Bash(python run_tests_parallel.py:*)",
+      "Bash(timeout 300 python:*)"
     ]
   }
 }

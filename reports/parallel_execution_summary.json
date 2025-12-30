@@ -1,28 +1,149 @@
 {
-  "timestamp": "2025-12-29T16:42:45.507754",
-  "workers": 7,
+  "timestamp": "2025-12-30T13:23:17.891181",
+  "workers": 6,
   "statistics": {
-    "total_features": 1,
+    "total_features": 12,
     "passed_features": 0,
-    "failed_features": 1,
-    "total_duration": 316.18419,
-    "max_duration": 316.18419,
-    "min_duration": 316.18419,
-    "avg_duration": 316.18419,
-    "parallel_duration": 316.333014,
-    "speedup": 0.9995295337716474
+    "failed_features": 12,
+    "total_duration": 700.035339,
+    "max_duration": 119.833433,
+    "min_duration": 0.004375,
+    "avg_duration": 58.33627825,
+    "parallel_duration": 120.045609,
+    "speedup": 5.8314114512926505
   },
   "results": [
     {
+      "feature": "industries_page",
+      "worker_id": 5,
+      "success": false,
+      "returncode": 1,
+      "duration": 109.658356,
+      "json_output": "E:\\Projects\\faberwork_python_behave_testcases\\reports\\parallel-results\\worker_5\\industries_page_results.json",
+      "allure_output": null,
+      "stdout": "m - \u001b[1mSuccess Rate: 100.00%\u001b[0m\n\u001b[32m2025-12-30 13:22:43\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1m================================================================================\u001b[0m\n\u001b[32m2025-12-30 13:22:43\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1mTest Execution Completed\u001b[0m\n\u001b[32m2025-12-30 13:22:43\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1m================================================================================\u001b[0m\n",
+      "stderr": " \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n\u001b[32m2025-12-30 13:21:19.104\u001b[0m | \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n\u001b[32m2025-12-30 13:21:19.152\u001b[0m | \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n"
+    },
+    {
+      "feature": "latest_thinking_page",
+      "worker_id": 0,
+      "success": false,
+      "returncode": 3221225794,
+      "duration": 0.00865,
+      "json_output": null,
+      "allure_output": null,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "feature": "navigation",
+      "worker_id": 1,
+      "success": false,
+      "returncode": 3221225794,
+      "duration": 0.004441,
+      "json_output": null,
+      "allure_output": null,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "feature": "search",
+      "worker_id": 2,
+      "success": false,
+      "returncode": 3221225794,
+      "duration": 0.004647,
+      "json_output": null,
+      "allure_output": null,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "feature": "services_page",
+      "worker_id": 3,
+      "success": false,
+      "returncode": 3221225794,
+      "duration": 0.004375,
+      "json_output": null,
+      "allure_output": null,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
       "feature": "smoke",
+      "worker_id": 4,
+      "success": false,
+      "returncode": 3221225794,
+      "duration": 0.004403,
+      "json_output": null,
+      "allure_output": null,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "feature": "success_stories_page",
+      "worker_id": 5,
+      "success": false,
+      "returncode": 3221225794,
+      "duration": 0.004871,
+      "json_output": null,
+      "allure_output": null,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "feature": "about_page",
       "worker_id": 0,
       "success": false,
       "returncode": 1,
-      "duration": 316.18419,
-      "json_output": "E:\\Projects\\faberwork_python_behave_testcases\\reports\\parallel-results\\worker_0\\smoke_results.json",
+      "duration": 111.167553,
+      "json_output": "E:\\Projects\\faberwork_python_behave_testcases\\reports\\parallel-results\\worker_0\\about_page_results.json",
       "allure_output": null,
-      "stdout": "0m - \u001b[1mSuccess Rate: 50.00%\u001b[0m\n\u001b[32m2025-12-29 16:42:45\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1m================================================================================\u001b[0m\n\u001b[32m2025-12-29 16:42:45\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1mTest Execution Completed\u001b[0m\n\u001b[32m2025-12-29 16:42:45\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1m================================================================================\u001b[0m\n",
-      "stderr": " \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n\u001b[32m2025-12-29 16:37:30.267\u001b[0m | \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n\u001b[32m2025-12-29 16:37:30.294\u001b[0m | \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n"
+      "stdout": "m - \u001b[1mSuccess Rate: 100.00%\u001b[0m\n\u001b[32m2025-12-30 13:22:44\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1m================================================================================\u001b[0m\n\u001b[32m2025-12-30 13:22:44\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1mTest Execution Completed\u001b[0m\n\u001b[32m2025-12-30 13:22:44\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1m================================================================================\u001b[0m\n",
+      "stderr": " \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n\u001b[32m2025-12-30 13:21:19.110\u001b[0m | \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n\u001b[32m2025-12-30 13:21:19.165\u001b[0m | \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n"
+    },
+    {
+      "feature": "carousel",
+      "worker_id": 1,
+      "success": false,
+      "returncode": 143,
+      "duration": 119.756604,
+      "json_output": "E:\\Projects\\faberwork_python_behave_testcases\\reports\\parallel-results\\worker_1\\carousel_results.json",
+      "allure_output": null,
+      "stdout": "m - \u001b[1mSuccess Rate: 100.00%\u001b[0m\n\u001b[32m2025-12-30 13:22:47\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1m================================================================================\u001b[0m\n\u001b[32m2025-12-30 13:22:47\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1mTest Execution Completed\u001b[0m\n\u001b[32m2025-12-30 13:22:47\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1m================================================================================\u001b[0m\n",
+      "stderr": " \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n\u001b[32m2025-12-30 13:21:19.106\u001b[0m | \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n\u001b[32m2025-12-30 13:21:19.157\u001b[0m | \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n"
+    },
+    {
+      "feature": "forms",
+      "worker_id": 4,
+      "success": false,
+      "returncode": 143,
+      "duration": 119.779839,
+      "json_output": "E:\\Projects\\faberwork_python_behave_testcases\\reports\\parallel-results\\worker_4\\forms_results.json",
+      "allure_output": null,
+      "stdout": "  \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_scenario\u001b[0m - \u001b[1m--------------------------------------------------------------------------------\u001b[0m\n\u001b[32m2025-12-30 13:23:15\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_scenario\u001b[0m - \u001b[1mCompleted Scenario: Submit consultation form with valid data - Status: STATUS.PASSED\u001b[0m\n\u001b[32m2025-12-30 13:23:15\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_scenario\u001b[0m - \u001b[1m--------------------------------------------------------------------------------\u001b[0m\n",
+      "stderr": " \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n\u001b[32m2025-12-30 13:21:19.108\u001b[0m | \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n\u001b[32m2025-12-30 13:21:19.158\u001b[0m | \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n"
+    },
+    {
+      "feature": "complete_navigation",
+      "worker_id": 2,
+      "success": false,
+      "returncode": 143,
+      "duration": 119.808167,
+      "json_output": "E:\\Projects\\faberwork_python_behave_testcases\\reports\\parallel-results\\worker_2\\complete_navigation_results.json",
+      "allure_output": null,
+      "stdout": "m - \u001b[1mSuccess Rate: 100.00%\u001b[0m\n\u001b[32m2025-12-30 13:23:04\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1m================================================================================\u001b[0m\n\u001b[32m2025-12-30 13:23:04\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1mTest Execution Completed\u001b[0m\n\u001b[32m2025-12-30 13:23:04\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1m================================================================================\u001b[0m\n",
+      "stderr": " \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n\u001b[32m2025-12-30 13:21:19.105\u001b[0m | \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n\u001b[32m2025-12-30 13:21:19.159\u001b[0m | \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n"
+    },
+    {
+      "feature": "contact_page",
+      "worker_id": 3,
+      "success": false,
+      "returncode": 143,
+      "duration": 119.833433,
+      "json_output": "E:\\Projects\\faberwork_python_behave_testcases\\reports\\parallel-results\\worker_3\\contact_page_results.json",
+      "allure_output": null,
+      "stdout": "m - \u001b[1mSuccess Rate: 100.00%\u001b[0m\n\u001b[32m2025-12-30 13:22:52\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1m================================================================================\u001b[0m\n\u001b[32m2025-12-30 13:22:52\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1mTest Execution Completed\u001b[0m\n\u001b[32m2025-12-30 13:22:52\u001b[0m | \u001b[1mINFO    \u001b[0m | \u001b[36mNone\u001b[0m:\u001b[36mafter_all\u001b[0m - \u001b[1m================================================================================\u001b[0m\n",
+      "stderr": " \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n\u001b[32m2025-12-30 13:21:19.108\u001b[0m | \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n\u001b[32m2025-12-30 13:21:19.163\u001b[0m | \u001b[34m\u001b[1mDEBUG   \u001b[0m | \u001b[36mutils.test_data\u001b[0m:\u001b[36m__init__\u001b[0m:\u001b[36m22\u001b[0m - \u001b[34m\u001b[1mTestDataGenerator initialized with locale: en_US\u001b[0m\n"
     }
   ]
 }

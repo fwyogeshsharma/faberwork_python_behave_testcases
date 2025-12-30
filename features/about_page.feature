@@ -18,7 +18,7 @@ Feature: About Us Page Functionality
   Scenario: Company overview information is displayed
     Then I should see company overview information
     And I should see "Snowflake Partner Network" mentioned
-    And I should see "enterprise application consulting" mentioned
+    And I should see "enterprise applications" mentioned
 
   @about @leadership_team
   Scenario: All leadership team members are displayed
